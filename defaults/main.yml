@@ -1,0 +1,5 @@
+---
+zabbix40_agent_packages:
+  - zabbix-agent
+  - zabbix-sender
+  - zabbix-get

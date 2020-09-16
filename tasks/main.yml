@@ -1,0 +1,19 @@
+---
+- name: Install zabbix50-agent
+  yum:
+    name: "{{ zabbix50_agent_packages | join(',') }}"
+    state: present
+
+- name: Create zabbix home directory
+  file:
+    path: /var/lib/zabbix
+    state: directory
+    owner: zabbix
+    group: zabbix
+    mode: 0750
+
+- name: Start service
+  systemd:
+    name: zabbix-agent.service
+    state: started
+    enabled: yes
